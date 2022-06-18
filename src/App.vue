@@ -61,6 +61,8 @@ const reiniciarElJuego = () => {
 		</div>
 
 		<div class="text-center">
+      <button @click="reiniciarElJuego" class="px-6 py-4 bg-violet-500 rounded font-bold hover:bg-violet-800 duration-300">Reiniciar</button>
+	
 				</div>
 	</main>
 </template>
