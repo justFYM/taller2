@@ -7,8 +7,7 @@ const tablero = ref([ //Tablero inicial, si se inicia el juego parte sin datos//
   ['', '', '']
 ])
 const saberGanador = (tablero) => {
-  const jugadasGanadoras = [ //Aquí van las líneas que si se completan, se acaba el juego, en otras palabras, hay un ganador.
-    [1, 4, 7],
+  const jugadasGanadoras = [ //Cuando se cumplen éstos espacios en una matriz de 3x3, entonces hay un ganador.
     [6, 7, 8],
     [0, 3, 6],
     [2, 5, 8],
@@ -19,7 +18,7 @@ const saberGanador = (tablero) => {
 
   for (let i = 0; i < jugadasGanadoras.length; i++) {
     const [a, b, c] = jugadasGanadoras[i]
-    if (tablero[a] && tablero[a] === tablero[b] && tablero[a] === tablero[c]) { //
+    if (tablero[a] && tablero[a] === tablero[b] && tablero[a] === tablero[c]) { //Ésta línea compara la posición a con la b y c, si son iguales entonces hay un ganador.
       return tablero[a]
     }
   }
@@ -27,10 +26,10 @@ const saberGanador = (tablero) => {
 }
 const ganador = computed(() => saberGanador(tablero.value.flat()))
 const jugada = (x, y) => {
-	if (ganador.value) return
+	if (ganador.value) return //Si hay un jugador que ganó la partida, entonces se retorna (se reinicia la partida).
 	if (tablero.value[x][y]) return
 	tablero.value[x][y] = jugador.value
-	jugador.value = jugador.value === 'X' ? 'O' : 'X' //Operador ternario que cambia de turno al jugador que ya hizo su jugada.
+	jugador.value = jugador.value === 'X' ? 'O' : 'X' //Ésta línea contiene un operador ternario que cambia de turno al jugador que ya hizo su jugada.
 }
 const reiniciarElJuego = () => {
 	tablero.value = [   /* Éste es el tablero pincipal, el que aparecerá sin datos cuando se visualice la aplicación web*/
