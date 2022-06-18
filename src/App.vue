@@ -43,9 +43,10 @@ const reiniciarElJuego = () => {
 </script>
 
 <template>
-	<main class="text-center">
-		<h1>Taller 2</h1>
+	<main class="text-center py-10">
+	
 		<div class="flex flex-col items-center mb-8">
+      	<h1 class="mb-8 text-4xl font-bold">Taller 2</h1>
 			<div 
 				v-for="(row, x) in tablero" 
 				:key="x"
@@ -54,14 +55,14 @@ const reiniciarElJuego = () => {
 					v-for="(cell, y) in row" 
 					:key="y" 
 					@click="jugada(x, y)" 
-					:class="`border-2 border-blue  w-40 h-40 flex items-center justify-center material-icons-outlined text-5xl cursor-pointer ${cell === 'X' ? 'text-yellow-500' : 'text-red-900'}`">
+					:class="`border-2 border-blue  w-44 h-44 flex items-center justify-center material-icons-outlined text-7xl font-bold cursor-pointer ${cell === 'X' ? 'text-yellow-500' : 'text-red-900'}`">
 					{{ cell === 'X' ? 'X' : cell === 'O' ? '0' : '' }} <!--Ternario que define las marcas de cada jugador, y deja vacío el tablero en caso de que no hayan jugadas-->
 				</div>
 			</div>
 		</div>
 
 		<div class="text-center">
-      <h2 v-if="ganador" class="text-7xl font-bold mb-10">Ganador: '{{ ganador }}'  !</h2>
+      <h2 v-if="ganador" class="text-5xl font-bold mb-10">Ganador: '{{ ganador }}'  !</h2>
       <button @click="reiniciarElJuego" class="px-6 py-4 bg-violet-500 rounded font-bold hover:bg-violet-800 duration-300">Reiniciar</button>
 				
         </div>
