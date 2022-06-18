@@ -55,7 +55,7 @@ const reiniciarElJuego = () => {
 					v-for="(cell, y) in row" 
 					:key="y" 
 					@click="jugada(x, y)" 
-					:class="`border-2 border-blue  w-44 h-44 flex items-center justify-center material-icons-outlined text-7xl font-bold cursor-pointer ${cell === 'X' ? 'text-yellow-500' : 'text-red-900'}`">
+					:class="`border-2 border-blue w-44 h-44 hover:bg-violet-900 duration-300 flex items-center justify-center material-icons-outlined text-7xl font-bold cursor-pointer ${cell === 'X' ? 'text-yellow-500' : 'text-orange-800'}`">
 					{{ cell === 'X' ? 'X' : cell === 'O' ? '0' : '' }} <!--Ternario que define las marcas de cada jugador, y deja vacío el tablero en caso de que no hayan jugadas-->
 				</div>
 			</div>
